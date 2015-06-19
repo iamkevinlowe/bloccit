@@ -1,6 +1,7 @@
 require 'faker'
 
-new_post = nil
+start_post_count = Post.count
+start_comment_count = Comment.count
 
 # Create Post
 post_hash = {
@@ -8,22 +9,20 @@ post_hash = {
   body: "There can only be one!"
 }
 
-if !Post.any?{|post| post.title == post_hash[:title]}
-  new_post = Post.create!(post_hash)
-  puts "Unique post created"
-else
-  puts "Post already exists. No post created"
-end
+unique_post = Post.find_or_create_by(post_hash)
 
 # Create Comment
 comment_hash = {
-  post: new_post, 
+  post: unique_post, 
   body: "Wow, I haven't read this one before."
 }
 
-if !Comment.any?{|comment| comment.body == comment_hash[:body]}
-  Comment.create!(comment_hash)
-  puts "Unique comment created"
-else
-  puts "Comment already exists.  No comment created"
+Comment.find_or_create_by(comment_hash)
+
+if Post.count > start_post_count
+  puts "New post created"
+end
+
+if Comment.count > start_comment_count
+  puts "New comment created"
 end
