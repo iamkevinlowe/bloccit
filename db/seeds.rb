@@ -1,21 +1,29 @@
 require 'faker'
 
-# Create Posts
-50.times do 
-  Post.create!(
-    title:  Faker::Lorem.sentence,
-    body:   Faker::Lorem.paragraph
-    )
-end
-posts = Post.all
+new_post = nil
 
-100.times do
-  Comment.create!(
-    post:   posts.sample,
-    body:   Faker::Lorem.paragraph
-    )
+# Create Post
+post_hash = {
+  title: "A uniquely titled post", 
+  body: "There can only be one!"
+}
+
+if !Post.any?{|post| post.title == post_hash[:title]}
+  new_post = Post.create!(post_hash)
+  puts "Unique post created"
+else
+  puts "Post already exists. No post created"
 end
 
-puts "Seed finished"
-puts "#{Post.count} posts created"
-puts "#{Comment.count} comments created"
+# Create Comment
+comment_hash = {
+  post: new_post, 
+  body: "Wow, I haven't read this one before."
+}
+
+if !Comment.any?{|comment| comment.body == comment_hash[:body]}
+  Comment.create!(comment_hash)
+  puts "Unique comment created"
+else
+  puts "Comment already exists.  No comment created"
+end
