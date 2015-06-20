@@ -14,5 +14,9 @@
  *= require_self
  */
 
+#price {
+  float: right;
+}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
