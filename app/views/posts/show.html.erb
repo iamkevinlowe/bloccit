@@ -2,6 +2,11 @@
 
 <div class="row">
   <div class="col-md-8">
+    <% if @summary.nil? %>
+      <%= link_to "New Summary", new_topic_post_summary_path(@topic, @post), class: 'btn btn-success' %>
+    <% else %>
+      <%= link_to "View Summary", topic_post_summary_path(@topic, @post, @summary), class: 'btn btn-success' %>
+    <% end %>
     <p><%= @post.body %></p>
   </div>
   <div class="col-md-4">

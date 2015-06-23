@@ -1,0 +1,23 @@
+<h1>Edit Summary</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for summaries</p>
+    <ul>
+      <li>Only one summary for each post.</li>
+      <li>Make it informative.</li>
+      <li>We don't like attitude.</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <%= form_for [@topic, @post, @summary] do |f| %>
+    <div class="form-group">
+      <%= f.label :summary %>
+      <%= f.text_area :summary, rows: 8, class: 'form-control', placeholder: "Enter summary body" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Save", class: 'btn btn-success' %>
+    </div>
+    <% end %>
+  </div>
+</div>

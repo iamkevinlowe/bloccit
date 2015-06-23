@@ -32,6 +32,14 @@ topics = Topic.all
 end
 posts = Post.all
 
+# Create Summaries
+25.times do
+  Summary.create!(
+    post:   posts.sample,
+    summary:  Faker::Lorem.paragraph
+  )
+end
+
 100.times do
   Comment.create!(
     # user: users.sample,   # we have not yet associated Users with Comments
@@ -73,4 +81,5 @@ puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
+puts "#{Summary.count} summaries created"
 puts "#{Comment.count} comments created"
