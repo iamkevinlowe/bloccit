@@ -1,2 +1,2 @@
-<h1><%= @advertisement.title %><span id="price"><%= "$#{@advertisement.price}" %></span></h1>
+<h1><%= @advertisement.title %><span class="pull-right"><%= number_to_currency(@advertisement.price) %></span></h1>
 <p><%= @advertisement.copy %></p>
