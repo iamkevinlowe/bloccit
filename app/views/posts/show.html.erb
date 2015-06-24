@@ -13,4 +13,12 @@
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
   </div>
+  <div class="col-md-8">
+    <h2>Comments</h2>
+    <% if @post.comments.any? %>
+      <%= render @comments %>
+    <% end %>
+    <h4>Add a comment:</h4>
+    <%= render partial: 'comments/form', locals: { topic: @topic, post: @post } %>
+  </div>
 </div>
