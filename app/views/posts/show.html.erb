@@ -20,7 +20,7 @@
     <% end %>
     <% if policy(Comment.new).create? %>
       <h4>Add a comment:</h4>
-      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post } %>
+      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @post.comments.build } %>
     <% end %>
   </div>
 </div>
