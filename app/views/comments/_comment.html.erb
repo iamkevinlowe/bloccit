@@ -1,5 +1,5 @@
 <%= comment.body %><br>
 <p>
-  <%= image_tag(comment.user.avatar.tiny.url) if comment.user.name %>
+  <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
   <%= comment.user.name %>
 </p>
