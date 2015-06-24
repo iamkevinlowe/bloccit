@@ -22,6 +22,6 @@
       <%= render @comments %>
     <% end %>
     <h4>Add a comment:</h4>
-    <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @post.comments.build } %>
+    <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
   </div>
 </div>
