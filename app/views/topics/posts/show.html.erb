@@ -28,7 +28,7 @@
   <div class="col-md-8">
     <h2>Comments</h2>
     <% if @post.comments.any? %>
-      <%= render @comments %>
+      <%= render partial: 'comments/comment', collection: @comments %>
     <% end %>
     <% if policy(@comment).create? %>
       <h4>Add a comment:</h4>
