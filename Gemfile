@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-gem 'puma'
 # Use sqlite3 as the database for Active Record
 group :production do
   gem 'pg'
@@ -45,6 +44,8 @@ gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 gem 'newrelic_rpm'
+gem 'puma'
+gem 'factory_girl_rails', '~> 4.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -59,7 +60,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  gem 'foreman'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -69,5 +69,6 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
+  gem 'foreman'
 end
 
